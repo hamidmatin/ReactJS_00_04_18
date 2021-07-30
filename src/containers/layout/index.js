@@ -10,7 +10,7 @@ export default class Layout extends Component {
     return (
       <Fragment>
         <Header title='Session 4' projectName={constants.MY_PROJECT_NAME}/>
-        <main>{this.props.children}</main>
+        <main className='container'>{this.props.children}</main>
         <Footer />
       </Fragment>
     );
