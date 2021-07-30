@@ -1,0 +1,7 @@
+.my-button{
+  background-color: crimson;
+  cursor: pointer;
+}
+.my-button:hover{
+  background-color: cornflowerblue;
+}

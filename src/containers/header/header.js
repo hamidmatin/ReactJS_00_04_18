@@ -1,42 +1,41 @@
-import React, {Component} from 'react'
-import './header.css'
+import React, { Component } from 'react';
+import './header.css';
 
 // class Header extends React.Component{
 
 // }
 
-class Header extends Component{
-  state={}
+class Header extends Component {
+  state = {};
 
-  constructor(){
-    super()
+  constructor() {
+    super();
 
     // this.timer = new Date().toLocaleTimeString()
     // console.log(this.state)
     this.state = {
-      timer: new Date()
-    }
-
-    setInterval(() => {
-      // this.timer = new Date().toLocaleTimeString()
-      this.setState({timer: new Date()})
-      
-    }, 1000);
+      timer: new Date(),
+    };
   }
 
-  
-  render(){
+  componentDidMount() {
+    setInterval(() => {
+      // this.timer = new Date().toLocaleTimeString()
+      this.setState({ timer: new Date() });
+    }, 1000);
+  }
+  render() {
     //Javascript code ...
     // return jsxElement
     // console.log(this.props)
-    return(
+    return (
       <div className='header'>
         <h1>{this.props.projectName}</h1>
         <p>{this.props.title}</p>
         <p>{this.state.timer.toLocaleTimeString()}</p>
         {this.props.children}
       </div>
-    )
+    );
   }
 }
-export default Header
+export default Header;
