@@ -1,0 +1,20 @@
+.navbar{
+  display: flex;
+}
+.navbar a{
+  display: block;
+  text-decoration: none;
+  color: black;
+  padding: 8px 16px;
+}
+.navbar a:hover{
+  background-color: #f1f1f1;
+}
+
+.navbar .active{
+  color: red;
+}
+.navbar .custom-active{
+  background-color: #555;
+  color: white;
+}

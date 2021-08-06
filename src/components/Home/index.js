@@ -22,7 +22,7 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <PageTitle title='Home' />
+        <PageTitle title={this.props.pageTitle} />
        
         <button onClick={this.messageChangeHandler.bind(this, 'My counter changed by bind')}>
           Change message

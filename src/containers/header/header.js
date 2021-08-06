@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Navbar from './navbar'
 import './header.css';
 
 // class Header extends React.Component{
@@ -34,6 +35,7 @@ class Header extends Component {
         <p>{this.props.title}</p>
         <p>{this.state.timer.toLocaleTimeString()}</p>
         {this.props.children}
+        <Navbar />
       </div>
     );
   }
