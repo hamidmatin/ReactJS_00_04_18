@@ -10,7 +10,7 @@
 }
 @media screen and (min-width: 768px) {
   .container{
-    max-width: 7400px;
+    max-width: 740px;
   }
 }
 @media screen and (min-width: 992px) {
@@ -24,3 +24,50 @@
   }
 }
 
+.card{
+  border: 1px solid #cccccc;
+  box-shadow: 0 4px 6px -2px #555555;
+  padding: 1em;
+}
+.card .card-title{
+  text-align: center;
+}
+.card .card-row{
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+.card .card-label,
+.card .card-text{
+  padding: .5em;
+}
+.card .card-text{
+  font-weight: bold;
+}
+.card .card-footer{
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid #000;
+
+  padding-top: .5em;
+}
+
+.btn{
+  display: inline-block;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: black;
+  font-size: inherit;
+  font-family: inherit;
+  padding: .5em 1em;
+  cursor: pointer;
+}
+
+.btn.btn-delete{
+  background-color: orangered;
+  color: white;
+}
+.btn.btn-delete:hover{
+  background-color: hsl(16, 100%, 40%);
+}
