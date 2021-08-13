@@ -1,0 +1,19 @@
+.confirm{
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 10000;
+  background-color: rgba(0, 0, 0, 0.164);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirm .confirm-dialog{
+  padding: 1.5em;
+  background-color: white;
+  box-shadow: 0 0 16px 2px rgb(97, 97, 97);
+}
