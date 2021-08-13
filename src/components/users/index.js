@@ -5,6 +5,7 @@ import UserCard from './user-card';
 import './users.css';
 import Confirm from '../confirm';
 import { CONFIRM_RESULT_NO, CONFIRM_RESULT_YES } from '../../utils/constants';
+import { Link } from 'react-router-dom';
 
 export default class UsersIndex extends Component {
   constructor() {
@@ -69,11 +70,15 @@ export default class UsersIndex extends Component {
           <Confirm message='Are you sure to delete ?' onResult={this.confirmResult} />
         ) : null}
         <PageTitle title='Users' />
+          <div className='new-wrapper'>
+            <Link to='/users/new' className='btn btn-new'>New</Link>
+          </div>
         <div className='user-container'>
           {this.state.userList.length > 0 ? (
             this.state.userList.map((user) => (
               <UserCard
                 key={user.id}
+                id={user.id}
                 name={user.name}
                 username={user.username}
                 email={user.email}

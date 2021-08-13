@@ -1,10 +1,12 @@
-import { BrowserRouter, Link, NavLink, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Layout from './containers/layout';
 import Home from './components/Home';
 import UsersIndex from './components/users';
 import PostsIndex from './components/posts';
 
 import './App.css';
+import UserNew from './components/users/user-new';
+import UserEdit from './components/users/user-edit';
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
             <Home pageTitle='Home' />
           </Route>
           <Route path='/posts' component={PostsIndex} />
-          <Route path='/users' component={UsersIndex} />
+          <Route path='/users' exact component={UsersIndex} />
+          <Route path='/users/new' component={UserNew} />
+          <Route path='/users/edit/:id' component={UserEdit} />
           <Route path='*' render={() => <p>Page Not Found</p>} />
         </Switch>
       </Layout>

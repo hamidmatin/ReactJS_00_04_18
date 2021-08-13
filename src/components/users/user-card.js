@@ -20,7 +20,7 @@ export default class UserCard extends Component {
         </div>
         <div className="card-footer">
           <Link to='/users/detail' className='btn btn-detail'>Detail</Link>
-          <Link to='/users/edit' className='btn btn-edit'>Edit</Link>
+          <Link to={`/users/edit/${this.props.id}`} className='btn btn-edit'>Edit</Link>
           <button className='btn btn-delete' onClick={this.props.onDelete}>Delete</button>
         </div>
       </div>
