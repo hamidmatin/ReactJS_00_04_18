@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import PageTitle from '../page-title';
+import Layout from '../../containers/layout';
 import ClassComponentLifecycle from './class-component-lifecycle';
+import HookSample from './hook-sample';
 
 export default class Home extends Component {
   constructor() {
@@ -10,6 +11,8 @@ export default class Home extends Component {
       message: 'My Counter',
       display: 'block',
       isVisible: false,
+      hookMessage: 'Hello React Hook',
+      hookIsVisible: false,
     };
   }
   messageChangeHandler = (newMessage) => {
@@ -21,9 +24,8 @@ export default class Home extends Component {
   };
   render() {
     return (
-      <div>
-        <PageTitle title={this.props.pageTitle} />
-       
+      <Layout title={this.props.pageTitle}>
+
         <button onClick={this.messageChangeHandler.bind(this, 'My counter changed by bind')}>
           Change message
         </button>
@@ -59,7 +61,35 @@ export default class Home extends Component {
             <ClassComponentLifecycle message={this.state.message} />
           </div>
         ) : null}
-      </div>
+
+        <hr />
+        <h2>React Hook</h2>
+        <button
+          onClick={() => {
+            this.setState({ ...this.state, hookIsVisible: !this.state.hookIsVisible });
+          }}
+        >
+          Toggle
+        </button>
+
+        <button
+          onClick={() => {
+            this.setState({ ...this.state, hookMessage: 'Hello React Hook 1' });
+          }}
+        >
+          Change Message
+        </button>
+
+        <button
+          onClick={() => {
+            this.setState({ ...this.state, hookMessage: 'Hello React Hook 2' });
+          }}
+        >
+          Change Message 2
+        </button>
+
+        {this.state.hookIsVisible ? <HookSample message={this.state.hookMessage} /> : null}
+      </Layout>
     );
   }
 }

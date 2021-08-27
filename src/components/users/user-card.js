@@ -1,7 +1,19 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
+
+import PropTypes from 'prop-types';
+import { DeleteButton, EditButton } from '../buttons';
 
 export default class UserCard extends Component {
+  static propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    username: PropTypes.string.isRequired,
+    email: PropTypes.string,
+    phone: PropTypes.string,
+    onDelete: PropTypes.func,
+  };
+
   render() {
     return (
       <div className='card'>
@@ -18,12 +30,11 @@ export default class UserCard extends Component {
           <div className='card-label'>Phone :</div>
           <div className='card-text'>{this.props.phone}</div>
         </div>
-        <div className="card-footer">
-          <Link to='/users/detail' className='btn btn-detail'>Detail</Link>
-          <Link to={`/users/edit/${this.props.id}`} className='btn btn-edit'>Edit</Link>
-          <button className='btn btn-delete' onClick={this.props.onDelete}>Delete</button>
+        <div className='card-footer'>
+          <EditButton path={`/users/edit/${this.props.id}`} />
+          <DeleteButton onDelete={this.props.onDelete} />
         </div>
       </div>
-    )
+    );
   }
 }

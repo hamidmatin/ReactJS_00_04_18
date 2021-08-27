@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import PageTitle from '../page-title';
 import UserCard from './user-card';
 import './users.css';
 import Confirm from '../confirm';
 import { CONFIRM_RESULT_NO, CONFIRM_RESULT_YES } from '../../utils/constants';
 import { Link } from 'react-router-dom';
+import Layout from '../../containers/layout';
+import { NewButton } from '../buttons';
 
 export default class UsersIndex extends Component {
   constructor() {
@@ -19,19 +20,18 @@ export default class UsersIndex extends Component {
 
   confirmResult = (result) => {
     console.log(result);
-    switch (result){
+    switch (result) {
       case CONFIRM_RESULT_YES:
         break;
-      
+
       case CONFIRM_RESULT_NO:
         break;
-      
+
       default:
         break;
     }
 
-
-    this.setState({...this.state, showConfirm: false})
+    this.setState({ ...this.state, showConfirm: false });
   };
   userDeleteHandler = (id) => {
     console.log('Delete ' + id);
@@ -65,14 +65,15 @@ export default class UsersIndex extends Component {
   }
   render() {
     return (
-      <div>
+      <Layout title='Users'>
         {this.state.showConfirm ? (
           <Confirm message='Are you sure to delete ?' onResult={this.confirmResult} />
         ) : null}
-        <PageTitle title='Users' />
-          <div className='new-wrapper'>
-            <Link to='/users/new' className='btn btn-new'>New</Link>
-          </div>
+
+        <div className='new-wrapper'>
+          <NewButton path='/users/new'/>
+        </div>
+
         <div className='user-container'>
           {this.state.userList.length > 0 ? (
             this.state.userList.map((user) => (
@@ -92,7 +93,7 @@ export default class UsersIndex extends Component {
             <p>List is Empty</p>
           )}
         </div>
-      </div>
+      </Layout>
     );
   }
 }

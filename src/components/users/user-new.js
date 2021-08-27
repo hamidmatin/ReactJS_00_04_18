@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import Layout from '../../containers/layout'
 import UserForm from './user-form'
 
 export default class UserNew extends Component {
@@ -36,9 +37,9 @@ export default class UserNew extends Component {
   render() {
 
     return (
-      <div>
+      <Layout title='New User'>
         <UserForm user={this.state.user} onSave={this.newUser}/>
-      </div>
+      </Layout>
     )
   }
 }

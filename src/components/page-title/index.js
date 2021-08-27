@@ -1,16 +1,19 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types'
 
 import './page-title.css';
 
-export default class PageTitle extends Component {
-  render() {
-    return (
-      <>
-        <h2 className='page-title'>
-          <span>{this.props.title}</span>
-        </h2>
-        <hr />
-      </>
-    );
-  }
+export default function PageTitle({title}) {
+  return (
+    <>
+      <h2 className='page-title'>
+        <span>{title}</span>
+      </h2>
+      <hr />
+    </>
+  );
+}
+
+PageTitle.propTypes = {
+  title: PropTypes.string.isRequired
 }

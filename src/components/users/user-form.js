@@ -1,4 +1,5 @@
-import React, { Component, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
+import { InputLabel } from '../form-controls/input-label';
 
 export default class UserForm extends PureComponent {
   constructor() {
@@ -57,47 +58,46 @@ export default class UserForm extends PureComponent {
   /*************** */
   componentDidUpdate(prevProps) {
     // if (prevProps.user !== this.props.user)
-      this.setState({ ...this.state, userdata: this.props.user });
+    this.setState({ ...this.state, userdata: this.props.user });
   }
 
   render() {
     return (
       <form className='user-form' onSubmit={this.submitHandler}>
-        <label className='label-control'>Name :</label>
-        <input
+        <InputLabel
+          label='Name :'
           type='text'
-          className='input-control'
           name='name'
           value={this.state.userdata.name}
           onChange={this.changeHandler}
+          errorMessage='sdsdsd dkajfgakjdf akjdf agf adj'
         />
-
-        <label className='label-control'>Username :</label>
-        <input
+        
+        <InputLabel
+          label='Username :'
           type='text'
-          className='input-control'
           name='username'
           value={this.state.userdata.username}
           onChange={this.changeHandler}
         />
-
-        <label className='label-control'>E-Mail :</label>
-        <input
-          type='text'
-          className='input-control'
+        
+        <InputLabel
+          label='E-Mail :'
+          type='email'
           name='email'
           value={this.state.userdata.email}
           onChange={this.changeHandler}
         />
-
-        <label className='label-control'>Phone :</label>
-        <input
+    
+        
+        <InputLabel
+          label='Phone :'
           type='text'
-          className='input-control'
           name='phone'
           value={this.state.userdata.phone}
           onChange={this.changeHandler}
         />
+      
 
         <button type='submit' className='btn btn-save'>
           Save

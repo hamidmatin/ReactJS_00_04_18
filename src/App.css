@@ -51,40 +51,7 @@
   padding-top: .5em;
 }
 
-.btn{
-  display: inline-block;
-  text-decoration: none;
-  border: none;
-  outline: none;
-  background-color: transparent;
-  color: black;
-  font-size: inherit;
-  font-family: inherit;
-  padding: .5em 1em;
-  cursor: pointer;
-}
 
-.btn.btn-delete{
-  background-color: orangered;
-  color: white;
-}
-.btn.btn-delete:hover{
-  background-color: hsl(16, 100%, 40%);
-}
-.btn.btn-new{
-  background-color: green;
-  color: white;
-}
-.btn.btn-new:hover{
-  background-color: darkgreen
-}
-.btn.btn-save{
-  background-color: dodgerblue;
-  color: white;
-}
-.btn.btn-save:hover{
-  background-color: hsl(210, 100%, 36%)
-}
 .new-wrapper{
   display: flex;
   justify-content: flex-end;

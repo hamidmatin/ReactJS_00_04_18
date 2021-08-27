@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Layout from './containers/layout';
 import Home from './components/Home';
 import UsersIndex from './components/users';
 import PostsIndex from './components/posts';
@@ -11,7 +10,7 @@ import UserEdit from './components/users/user-edit';
 function App() {
   return (
     <BrowserRouter>
-      <Layout>
+      
         {/* <Link to='/'>Home</Link>
         <Link to='/users'>Users</Link>
         <Link to='/posts'>Posts</Link> */}
@@ -30,7 +29,7 @@ function App() {
           <Route path='/users/edit/:id' component={UserEdit} />
           <Route path='*' render={() => <p>Page Not Found</p>} />
         </Switch>
-      </Layout>
+    
     </BrowserRouter>
   );
 }

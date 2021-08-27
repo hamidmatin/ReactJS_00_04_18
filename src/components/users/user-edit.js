@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { Component } from 'react'
+import Layout from '../../containers/layout'
 import UserForm from './user-form'
 
 export default class UserEdit extends Component {
@@ -39,9 +40,9 @@ export default class UserEdit extends Component {
   }
   render() {
     return (
-      <div>
+      <Layout title='Edit User'>
         <UserForm user={this.state.user} onSave={this.updateUser}/>
-      </div>
+      </Layout>
     )
   }
 }
