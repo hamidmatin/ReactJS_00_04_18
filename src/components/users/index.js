@@ -4,10 +4,12 @@ import UserCard from './user-card';
 import './users.css';
 import Confirm from '../confirm';
 import { CONFIRM_RESULT_NO, CONFIRM_RESULT_YES } from '../../utils/constants';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import Layout from '../../containers/layout';
 import { NewButton } from '../buttons';
+import Loading from '../loading';
 
+import widthLoading from '../../HOC/width-loading'
 export default class UsersIndex extends Component {
   constructor() {
     super();
@@ -15,6 +17,7 @@ export default class UsersIndex extends Component {
     this.state = {
       userList: [],
       showConfirm: false,
+      isLoading: true,
     };
   }
 
@@ -60,18 +63,23 @@ export default class UsersIndex extends Component {
     axios.get('https://jsonplaceholder.typicode.com/users').then((result) => {
       console.log(result);
       console.log(result.data);
-      this.setState({ userList: result.data });
+      this.setState({ ...this.state, userList: result.data, isLoading: false });
     });
   }
   render() {
+    const LayoutWidthLoading = widthLoading(Layout)
+
+    
     return (
-      <Layout title='Users'>
+      <LayoutWidthLoading title='Users' isLoading={this.state.isLoading}>
+        {/* {this.state.isLoading ? <Loading /> : null} */}
+
         {this.state.showConfirm ? (
           <Confirm message='Are you sure to delete ?' onResult={this.confirmResult} />
         ) : null}
 
         <div className='new-wrapper'>
-          <NewButton path='/users/new'/>
+          <NewButton path='/users/new' />
         </div>
 
         <div className='user-container'>
@@ -93,7 +101,7 @@ export default class UsersIndex extends Component {
             <p>List is Empty</p>
           )}
         </div>
-      </Layout>
+      </LayoutWidthLoading>
     );
   }
 }

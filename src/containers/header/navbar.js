@@ -16,6 +16,9 @@ export default function Navbar() {
         Users
       </NavLink>
       <NavLink to='/posts'>Posts</NavLink>
+      <NavLink to='/redux-sample'>Redux Sample</NavLink>
+      <NavLink to='/products'>Products</NavLink>
+      <NavLink to='/context-sample'>Context Sample</NavLink>
     </div>
   );
 }

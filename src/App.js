@@ -6,6 +6,9 @@ import PostsIndex from './components/posts';
 import './App.css';
 import UserNew from './components/users/user-new';
 import UserEdit from './components/users/user-edit';
+import { ReduxSampleIndex } from './components/redux-sample';
+import ProductsIndex from './components/products';
+import ContextSampleIndex from './components/context-sample';
 
 function App() {
   return (
@@ -27,6 +30,9 @@ function App() {
           <Route path='/users' exact component={UsersIndex} />
           <Route path='/users/new' component={UserNew} />
           <Route path='/users/edit/:id' component={UserEdit} />
+          <Route path='/redux-sample/' component={ReduxSampleIndex} />
+          <Route path='/products/' component={ProductsIndex} />
+          <Route path='/context-sample/' component={ContextSampleIndex} />
           <Route path='*' render={() => <p>Page Not Found</p>} />
         </Switch>
     

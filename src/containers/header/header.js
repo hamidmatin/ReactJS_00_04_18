@@ -20,10 +20,10 @@ class Header extends Component {
   }
 
   componentDidMount() {
-    setInterval(() => {
-      // this.timer = new Date().toLocaleTimeString()
-      this.setState({ timer: new Date() });
-    }, 1000);
+    // setInterval(() => {
+    //   // this.timer = new Date().toLocaleTimeString()
+    //   this.setState({ timer: new Date() });
+    // }, 1000);
   }
   render() {
     //Javascript code ...

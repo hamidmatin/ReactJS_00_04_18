@@ -3,7 +3,8 @@ import Layout from '../../containers/layout';
 import ClassComponentLifecycle from './class-component-lifecycle';
 import HookSample from './hook-sample';
 
-export default class Home extends Component {
+import { connect } from 'react-redux'
+class Home extends Component {
   constructor() {
     super();
 
@@ -89,7 +90,18 @@ export default class Home extends Component {
         </button>
 
         {this.state.hookIsVisible ? <HookSample message={this.state.hookMessage} /> : null}
+        <hr />
+        <h3>Redux</h3>
+        <p>Test Redux : {this.props.test}</p>
       </Layout>
     );
   }
 }
+
+const mapSatetToProps = (state)=>{
+  return {
+    test: state.test
+  }
+}
+
+export default connect(mapSatetToProps)(Home)
